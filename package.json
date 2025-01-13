@@ -2,7 +2,7 @@
   "name": "@openscd/official-plugins",
   "version": "0.0.1",
   "repository": "https://github.com/openscd/open-scd.git",
-  "directory": "packages/plugins",
+  "directory": "apps/plugins",
   "description": "The official plug-ins of open-scd.",
   "keywords": [
     "SCL",
