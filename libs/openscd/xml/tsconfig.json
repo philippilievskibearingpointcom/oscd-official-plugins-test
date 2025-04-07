@@ -1,0 +1,10 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "../../dist/libs/openscd/xml",
+    "declaration": true,
+    "composite": true
+  },
+  "include": ["src/**/*.ts"]
+}

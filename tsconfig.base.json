@@ -16,7 +16,13 @@
     "sourceMap": true,
     "inlineSources": true,
     "resolveJsonModule": true,
-    "rootDir": "./apps/plugins/src"
+    "rootDir": ".",
+    "paths": {
+      "@openscd/open-scd/*": ["libs/openscd/open-scd/*"],
+      "@openscd/core/*": ["libs/openscd/core/*"],
+      "@openscd/xml": ["libs/openscd/xml/index.ts"],
+      "@openscd/xml/*": ["libs/openscd/xml/*"]
+    }
   },
   "include": ["./apps/plugins/src/**/*.ts"]
 }

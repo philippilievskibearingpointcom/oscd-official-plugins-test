@@ -29,6 +29,8 @@ export default {
     './': '/',
   },
   alias: {
-    '@openscd/open-scd': '../open-scd/',
-  },
+    '@openscd/open-scd': '../../libs/openscd/open-scd/',
+    '@openscd/core': '../../libs/openscd/core/',
+    '@openscd/xml': '../../libs/openscd/xml/',
+  }
 };

@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "es2020",
     "module": "esnext",
@@ -18,5 +19,5 @@
     "resolveJsonModule": true,
     "rootDir": "./src"
   },
-  "include": ["src/**/*.ts"]
+  "include": ["./src/**/*.ts"]
 }
