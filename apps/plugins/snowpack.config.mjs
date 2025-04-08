@@ -25,12 +25,14 @@ export default {
   ],
   workspaceRoot: '../../',
   mount: {
-    '../open-scd/': '/open-scd/',
-    './': '/',
+    '../../libs/openscd/open-scd': '/open-scd/',
+    '../../libs/openscd/xml/src': '/xml/',
+    '../../libs/openscd/core': '/core/',
+    './': '/'
   },
   alias: {
     '@openscd/open-scd': '../../libs/openscd/open-scd/',
     '@openscd/core': '../../libs/openscd/core/',
-    '@openscd/xml': '../../libs/openscd/xml/',
+    '@openscd/xml': '../../libs/openscd/xml/src/',
   }
 };

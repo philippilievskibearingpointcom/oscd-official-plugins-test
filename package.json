@@ -66,6 +66,8 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@nrwl/cli": "^15.9.3",
+    "@nrwl/workspace": "^19.8.4",
     "@open-wc/eslint-config": "^4.3.0",
     "@open-wc/semantic-dom-diff": "^0.19.5",
     "@open-wc/testing": "^2.5.33",
@@ -77,6 +79,7 @@
     "@web/dev-server-esbuild": "^0.2.16",
     "@web/test-runner": "^0.13.22",
     "@web/test-runner-playwright": "^0.11.0",
+    "ace-custom-element": "^1.6.5",
     "concurrently": "^6.2.1",
     "deepmerge": "^4.2.2",
     "es-dev-server": "^2.1.0",

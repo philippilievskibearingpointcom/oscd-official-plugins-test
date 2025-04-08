@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es2020",
     "module": "esnext",
     "moduleResolution": "node",
@@ -20,7 +21,8 @@
     "paths": {
       "@openscd/open-scd/*": ["libs/openscd/open-scd/*"],
       "@openscd/core/*": ["libs/openscd/core/*"],
-      "@openscd/xml": ["libs/openscd/xml/index.ts"],
+      "@openscd/core": ["libs/openscd/core/index.ts"],
+      "@openscd/xml": ["libs/openscd/xml/src/index.ts"],
       "@openscd/xml/*": ["libs/openscd/xml/*"]
     }
   },
