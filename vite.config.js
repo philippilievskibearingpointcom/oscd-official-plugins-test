@@ -12,9 +12,9 @@ export default defineConfig({
     },
     build: {
         lib: {
-            entry: path.resolve(__dirname, 'apps/plugins/src/editors/IED.ts'),
-            name: 'IedPlugin',
-            fileName: 'ied-plugin',
+            entry: path.resolve(__dirname, 'apps/plugins/src/editors/Substation.ts'),
+            name: 'Substation',
+            fileName: 'substation',
             formats: ['es']
         },
         rollupOptions: {
