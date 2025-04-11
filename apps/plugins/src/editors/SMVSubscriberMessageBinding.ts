@@ -15,6 +15,8 @@ import './subscription/sampledvalues/smv-list.js';
 import './subscription/ied-list.js';
 import { newViewEvent, View, ViewEvent } from './subscription/foundation.js';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 /** Defining view outside the class, which makes it persistent. */
 let view: View = View.PUBLISHER;
 

@@ -8,6 +8,8 @@ import './cleanup/datasets-container.js';
 import './cleanup/control-blocks-container.js';
 import './cleanup/datatypes-container.js';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 /** An editor [[`plugin`]] for cleaning SCL references and definitions. */
 export default class Cleanup extends LitElement {
   /** The document being edited as provided to plugins by [[`OpenSCD`]]. */

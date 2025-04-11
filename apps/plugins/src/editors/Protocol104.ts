@@ -17,6 +17,8 @@ import { RadioListItem } from '@material/mwc-list/mwc-radio-list-item';
 import './protocol104/network-container.js';
 import './protocol104/values-container.js';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 import {
   newViewEvent,
   View,

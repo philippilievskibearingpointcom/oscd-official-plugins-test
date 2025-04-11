@@ -11,6 +11,8 @@ import { createElement } from '@openscd/xml';
 import { newActionEvent } from '@openscd/core/foundation/deprecated/editor.js';
 import { createSubNetworkWizard } from '../wizards/subnetwork.js';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 /** An editor [[`plugin`]] for editing the `Communication` section. */
 export default class CommunicationPlugin extends LitElement {
   /** The document being edited as provided to plugins by [[`OpenSCD`]]. */

@@ -5,6 +5,8 @@ import { Nsdoc } from '@openscd/open-scd/src/foundation/nsdoc.js';
 import './subscription/fcda-binding-list.js';
 import './subscription/later-binding/ext-ref-ln-binding-list.js';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 /** An editor [[`plugin`]] for Subscribe Data Binding (SMV). */
 export default class SMVSubscribeDataBindingPlugin extends LitElement {
   @property({ attribute: false })
