@@ -7,6 +7,8 @@ import './substation/zeroline-pane.js';
 import { newWizardEvent } from '@openscd/open-scd/src/foundation.js';
 import { wizards } from '../wizards/wizard-library.js';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 /** An editor [[`plugin`]] for editing the `Substation` section. */
 export default class SubstationPlugin extends LitElement {
   /** The document being edited as provided to plugins by [[`OpenSCD`]]. */

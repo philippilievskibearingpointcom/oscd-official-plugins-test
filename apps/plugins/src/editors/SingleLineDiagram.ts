@@ -53,6 +53,8 @@ import '@material/mwc-list/mwc-list-item';
 import '@material/mwc-select';
 import '@material/mwc-textfield';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 /*
  * We need a variable outside the plugin to save the selected substation, because the Plugin is created
  * more than once during working with the SLD, for instance when opening a Wizard to edit equipment.
