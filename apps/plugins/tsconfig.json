@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "es2020",
     "module": "esnext",
@@ -16,7 +17,12 @@
     "sourceMap": true,
     "inlineSources": true,
     "resolveJsonModule": true,
-    "rootDir": "./src"
+    "rootDir": "../../",
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "./src/**/*.ts",
+    "../../libs/openscd/open-scd/src/**/*.ts",
+    "../../libs/openscd/core/src/**/*.ts",
+    "../../libs/openscd/xml/src/**/*.ts"
+  ]
 }

@@ -18,10 +18,8 @@ jobs:
     outputs:
       artifact-name: ${{ steps.upload.outputs.artifact-name }}
     steps:
-      - name: Checkout Repository (with Submodules)
+      - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Use Node.js 18.x
         uses: actions/setup-node@v4
@@ -31,16 +29,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Install Submodule Dependencies
-        run: npm install
-        working-directory: openscd
-
-      - name: Build Submodule
-        run: npm run build
-        working-directory: openscd
-
-      - name: Build Project
-        run: npm run build
+      - name: Build Plugins
+        run: npm run build:plugins
 
       - name: Upload Build Artifact
         id: upload
