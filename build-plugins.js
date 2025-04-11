@@ -52,6 +52,7 @@ async function buildAll() {
             const outFileName = baseName.toLowerCase();
 
             // Build configuration with output in a subfolder based on the plugin type.
+            // Externalize common libraries like lit-element, lit-html, and lit-translate.
             const config = defineConfig({
                 build: {
                     outDir: distDir, // Global output folder is the root-level "dist"
@@ -63,12 +64,18 @@ async function buildAll() {
                         formats: ['es'],
                     },
                     rollupOptions: {
+                        // Prevent bundling duplicate copies of shared dependencies.
+                        external: ['lit-element', 'lit-html', 'lit-translate'],
                         output: {
-                            inlineDynamicImports: true,
+                            // Optionally define globals if you need UMD builds or similar.
+                            globals: {
+                                'lit-element': 'LitElement',
+                                'lit-html': 'litHtml',
+                                'lit-translate': 'litTranslate'
+                            },
                         },
                     },
                     target: 'esnext',
-                    // The folder is already cleared – no need for Vite to empty it.
                     emptyOutDir: false,
                     configFile: false,
                 },

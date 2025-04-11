@@ -4,6 +4,7 @@ import { loader } from './loader.js';
 registerTranslateConfig({ loader, empty: key => key });
 
 const language = localStorage.getItem('language') || 'en';
+console.log("SETTING LANGUAGE TO", language);
 use(language);
 
 export function setLanguage(lang) {
