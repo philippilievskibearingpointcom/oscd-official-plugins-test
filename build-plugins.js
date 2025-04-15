@@ -59,7 +59,6 @@ async function buildAll() {
                     lib: {
                         entry: filePath,
                         name: pluginName,
-                        // Ensures file goes into a subfolder (e.g., "editors/filename.js")
                         fileName: () => `${pluginType}/${outFileName}.js`,
                         formats: ['es'],
                     },

@@ -6,7 +6,7 @@ import '@material/mwc-formfield';
 
 import { createElement } from '@openscd/xml';
 
-import '@openscd/open-scd/src/wizard-textfield.js';
+import '@openscd/open-scd/src/wizard-textfield-123.js';
 import {
   getValue,
   Wizard,
@@ -18,30 +18,30 @@ import { guessVoltageLevel } from '../editors/substation/guess-wizard.js';
 import { updateNamingAttributeWithReferencesAction } from './foundation/actions.js';
 
 function render(
-  name: string,
-  desc: string | null,
-  guessable: boolean
+    name: string,
+    desc: string | null,
+    guessable: boolean
 ): TemplateResult[] {
   return [
-    html`<wizard-textfield
+    html`<wizard-textfield-123
       label="name"
       .maybeValue=${name}
       helper="${get('substation.wizard.nameHelper')}"
       required
       validationMessage="${get('textfield.required')}"
       dialogInitialFocus
-    ></wizard-textfield>`,
-    html`<wizard-textfield
+    ></wizard-textfield-123>`,
+    html`<wizard-textfield-123
       label="desc"
       .maybeValue=${desc}
       nullable
       helper="${get('substation.wizard.descHelper')}"
-    ></wizard-textfield>`,
+    ></wizard-textfield-123>`,
     guessable
-      ? html`<mwc-formfield label="${get('guess.wizard.primary')}">
+        ? html`<mwc-formfield label="${get('guess.wizard.primary')}">
           <mwc-checkbox></mwc-checkbox>
         </mwc-formfield>`
-      : html``,
+        : html``,
   ];
 }
 
@@ -65,8 +65,8 @@ export function createAction(parent: Element): WizardActor {
 
 export function createSubstationWizard(parent: Element): Wizard {
   const guessable =
-    parent.ownerDocument.querySelector('Substation') === null &&
-    parent.tagName === 'SCL';
+      parent.ownerDocument.querySelector('Substation') === null &&
+      parent.tagName === 'SCL';
 
   return [
     {
@@ -91,14 +91,14 @@ export function substationEditWizard(element: Element): Wizard {
         icon: 'edit',
         label: get('save'),
         action: updateNamingAttributeWithReferencesAction(
-          element,
-          'substation.action.updatesubstation'
+            element,
+            'substation.action.updatesubstation'
         ),
       },
       content: render(
-        element.getAttribute('name') ?? '',
-        element.getAttribute('desc'),
-        false
+          element.getAttribute('name') ?? '',
+          element.getAttribute('desc'),
+          false
       ),
     },
   ];
