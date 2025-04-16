@@ -18,6 +18,10 @@ export default defineConfig({
             formats: ['es']
         },
         rollupOptions: {
+            external: [
+                'lit-html',
+                'lit-element',
+            ],
             output: {
                 inlineDynamicImports: true
             }
