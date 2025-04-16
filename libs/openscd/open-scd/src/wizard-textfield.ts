@@ -22,8 +22,8 @@ import { TextField } from '@material/mwc-textfield';
  * `multiplier` if an SI `unit` is given.
  *
  * NB: Use `maybeValue: string | null` instead of `value` if `nullable`!*/
-@customElement('wizard-textfield-123')
-export class WizardTextfield123 extends TextField {
+@customElement('wizard-textfield')
+export class WizardTextfield extends TextField {
   /** Whether [[`maybeValue`]] may be `null` */
   @property({ type: Boolean })
   nullable = false;

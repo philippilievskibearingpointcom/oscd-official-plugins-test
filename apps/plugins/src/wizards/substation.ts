@@ -6,7 +6,7 @@ import '@material/mwc-formfield';
 
 import { createElement } from '@openscd/xml';
 
-import '@openscd/open-scd/src/wizard-textfield-123.js';
+import '@openscd/open-scd/src/wizard-textfield.js';
 import {
   getValue,
   Wizard,
@@ -17,26 +17,28 @@ import {
 import { guessVoltageLevel } from '../editors/substation/guess-wizard.js';
 import { updateNamingAttributeWithReferencesAction } from './foundation/actions.js';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 function render(
     name: string,
     desc: string | null,
     guessable: boolean
 ): TemplateResult[] {
   return [
-    html`<wizard-textfield-123
+    html`<wizard-textfield
       label="name"
       .maybeValue=${name}
       helper="${get('substation.wizard.nameHelper')}"
       required
       validationMessage="${get('textfield.required')}"
       dialogInitialFocus
-    ></wizard-textfield-123>`,
-    html`<wizard-textfield-123
+    ></wizard-textfield>`,
+    html`<wizard-textfield
       label="desc"
       .maybeValue=${desc}
       nullable
       helper="${get('substation.wizard.descHelper')}"
-    ></wizard-textfield-123>`,
+    ></wizard-textfield>`,
     guessable
         ? html`<mwc-formfield label="${get('guess.wizard.primary')}">
           <mwc-checkbox></mwc-checkbox>

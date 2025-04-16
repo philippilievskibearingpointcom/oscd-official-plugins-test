@@ -63,15 +63,8 @@ async function buildAll() {
                         formats: ['es'],
                     },
                     rollupOptions: {
-                        // Prevent bundling duplicate copies of shared dependencies.
-                        external: ['lit-element', 'lit-html', 'lit-translate'],
                         output: {
-                            // Optionally define globals if you need UMD builds or similar.
-                            globals: {
-                                'lit-element': 'LitElement',
-                                'lit-html': 'litHtml',
-                                'lit-translate': 'litTranslate'
-                            },
+                            inlineDynamicImports: true
                         },
                     },
                     target: 'esnext',
