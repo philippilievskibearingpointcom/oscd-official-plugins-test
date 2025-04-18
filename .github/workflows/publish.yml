@@ -15,10 +15,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      artifact-name: ${{ steps.upload.outputs.artifact-name }}
     steps:
-      - name: Checkout Repository
+      - name: Checkout main branch
         uses: actions/checkout@v4
 
       - name: Use Node.js 18.x
@@ -26,46 +24,50 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Build Plugins
+      - name: Build plugins
         run: npm run build:plugins
 
-      - name: Upload Build Artifact
-        id: upload
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: plugins-dist
+          path: dist/
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: >
-      github.event_name == 'push' ||
-      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    if: |
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true))
     steps:
-      - name: Checkout gh-pages Branch
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
 
-      - name: Download Build Artifact
+      - name: Clean gh-pages branch
+        run: |
+          git rm -rf .
+          git clean -fxd
+
+      - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: plugins-dist
+          path: ./dist
 
-      - name: Copy Built Files to Plugins Folder
+      - name: Copy plugins to gh-pages
         run: |
           mkdir -p plugins
           cp -r dist/* plugins/
 
-      - name: Commit and Push Changes
+      - name: Commit and push changes
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -m "Deploy latest build to plugins" || echo "No changes to commit"
+          git add plugins
+          git commit -m "Deploy latest plugins build" || echo "No changes to commit"
           git push origin gh-pages
