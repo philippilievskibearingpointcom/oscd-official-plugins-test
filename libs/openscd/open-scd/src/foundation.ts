@@ -8,7 +8,7 @@ import AceEditor from 'ace-custom-element';
 
 import { getChildElementsByTagName } from '@openscd/xml';
 
-import { WizardTextfield } from './wizard-textfield.js';
+import { WizardTextField } from './wizard-textfield.js';
 import { WizardSelect } from './wizard-select.js';
 import { WizardCheckbox } from './wizard-checkbox.js';
 
@@ -17,7 +17,7 @@ import { EditorAction } from '@openscd/core/foundation/deprecated/editor.js';
 export const wizardInputSelector =
   'wizard-textfield, mwc-textfield, ace-editor, mwc-select, wizard-select, wizard-checkbox';
 export type WizardInputElement =
-  | WizardTextfield
+  | WizardTextField
   | TextField
   | (AceEditor & {
       checkValidity: () => boolean;
@@ -51,14 +51,14 @@ export function isWizardFactory(
 
 /** @returns the validity of `input` depending on type. */
 export function checkValidity(input: WizardInputElement): boolean {
-  if (input instanceof WizardTextfield || input instanceof Select)
+  if (input instanceof WizardTextField || input instanceof Select)
     return input.checkValidity();
   else return true;
 }
 
 /** reports the validity of `input` depending on type. */
 export function reportValidity(input: WizardInputElement): boolean {
-  if (input instanceof WizardTextfield || input instanceof Select)
+  if (input instanceof WizardTextField || input instanceof Select)
     return input.reportValidity();
   else return true;
 }
@@ -66,7 +66,7 @@ export function reportValidity(input: WizardInputElement): boolean {
 /** @returns the `value` or `maybeValue` of `input` depending on type. */
 export function getValue(input: WizardInputElement): string | null {
   if (
-    input instanceof WizardTextfield ||
+    input instanceof WizardTextField ||
     input instanceof WizardSelect ||
     input instanceof WizardCheckbox
   )
@@ -76,7 +76,7 @@ export function getValue(input: WizardInputElement): string | null {
 
 /** @returns the `multiplier` of `input` if available. */
 export function getMultiplier(input: WizardInputElement): string | null {
-  if (input instanceof WizardTextfield) return input.multiplier;
+  if (input instanceof WizardTextField) return input.multiplier;
   else return null;
 }
 
