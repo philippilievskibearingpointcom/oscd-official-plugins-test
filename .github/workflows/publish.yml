@@ -51,10 +51,6 @@ jobs:
         with:
           ref: gh-pages
 
-      - name: Clean gh-pages directory
-        run: |
-          find . -maxdepth 1 ! -name '.git' ! -name 'index.html' -exec rm -rf {} +
-
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
