@@ -23,7 +23,7 @@ import { TextField } from '@material/mwc-textfield';
  *
  * NB: Use `maybeValue: string | null` instead of `value` if `nullable`!*/
 @customElement('wizard-textfield')
-export class WizardTextField extends TextField {
+export class WizardTextfield extends TextField {
   /** Whether [[`maybeValue`]] may be `null` */
   @property({ type: Boolean })
   nullable = false;

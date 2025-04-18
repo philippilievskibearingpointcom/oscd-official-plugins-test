@@ -41,13 +41,19 @@ jobs:
 
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    if: >
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     steps:
       - name: Checkout gh-pages Branch
         uses: actions/checkout@v4
         with:
           ref: gh-pages
+
+      - name: Clean gh-pages directory
+        run: |
+          find . -maxdepth 1 ! -name '.git' ! -name 'index.html' -exec rm -rf {} +
 
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
@@ -64,6 +70,6 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add plugins
+          git add -A
           git commit -m "Deploy latest build to plugins" || echo "No changes to commit"
           git push origin gh-pages

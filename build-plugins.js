@@ -7,7 +7,6 @@ const root = process.cwd();
 const distDir = path.resolve(root, 'dist');
 const pluginTypes = ['editors', 'menu', 'validators', 'wizards'];
 
-// Clear the dist folder if it exists.
 function clearDistFolder(dir) {
     if (existsSync(dir)) {
         rmSync(dir, { recursive: true, force: true });
@@ -18,7 +17,6 @@ function clearDistFolder(dir) {
 }
 
 async function buildAll() {
-    // Clear the dist directory before building.
     clearDistFolder(distDir);
 
     for (const pluginType of pluginTypes) {
@@ -51,28 +49,40 @@ async function buildAll() {
             const pluginName = `${baseName.charAt(0).toUpperCase()}${baseName.slice(1)}Plugin`;
             const outFileName = baseName.toLowerCase();
 
-            // Build configuration with output in a subfolder based on the plugin type.
-            // Externalize common libraries like lit-element, lit-html, and lit-translate.
             const config = defineConfig({
                 build: {
-                    outDir: distDir, // Global output folder is the root-level "dist"
                     lib: {
                         entry: filePath,
                         name: pluginName,
-                        // Ensures file goes into a subfolder (e.g., "editors/filename.js")
                         fileName: () => `${pluginType}/${outFileName}.js`,
                         formats: ['es'],
                     },
                     rollupOptions: {
-                        // Prevent bundling duplicate copies of shared dependencies.
-                        external: ['lit-element', 'lit-html', 'lit-translate'],
+                        external: [
+                            'lit',
+                            'lit-html',
+                            'lit-element',
+                            '@material/mwc-fab',
+                            '@material/mwc-dialog',
+                            '@material/mwc-button',
+                            "@material/mwc-formfield",
+                            "@material/mwc-icon",
+                            "@material/mwc-icon-button",
+                            "@material/mwc-icon-button-toggle",
+                            "@material/mwc-list",
+                            "@material/mwc-menu",
+                            "@material/mwc-select",
+                            "@material/mwc-switch",
+                            "@material/mwc-textarea",
+                            "@material/mwc-textfield"
+                        ],
                         output: {
-                            // Optionally define globals if you need UMD builds or similar.
+                            inlineDynamicImports: true,
                             globals: {
-                                'lit-element': 'LitElement',
+                                lit: 'lit',
                                 'lit-html': 'litHtml',
-                                'lit-translate': 'litTranslate'
-                            },
+                                'lit-element': 'LitElement'
+                            }
                         },
                     },
                     target: 'esnext',
