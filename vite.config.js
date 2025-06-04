@@ -18,31 +18,8 @@ export default defineConfig({
             formats: ['es']
         },
         rollupOptions: {
-            external: [
-                'lit',
-                'lit-html',
-                'lit-element',
-                '@material/mwc-fab',
-                '@material/mwc-dialog',
-                '@material/mwc-button',
-                "@material/mwc-formfield",
-                "@material/mwc-icon",
-                "@material/mwc-icon-button",
-                "@material/mwc-icon-button-toggle",
-                "@material/mwc-list",
-                "@material/mwc-menu",
-                "@material/mwc-select",
-                "@material/mwc-switch",
-                "@material/mwc-textarea",
-                "@material/mwc-textfield"
-            ],
             output: {
-                inlineDynamicImports: true,
-                globals: {
-                    lit: 'lit',
-                    'lit-html': 'litHtml',
-                    'lit-element': 'LitElement'
-                }
+                inlineDynamicImports: true
             }
         },
         target: 'esnext'
