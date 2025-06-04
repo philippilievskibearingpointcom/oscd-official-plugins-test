@@ -18,8 +18,11 @@ export default defineConfig({
             formats: ['es']
         },
         rollupOptions: {
+            external: [
+                '@material/mwc-fab',
+            ],
             output: {
-                inlineDynamicImports: true
+                inlineDynamicImports: true,
             }
         },
         target: 'esnext'

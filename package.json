@@ -20,9 +20,11 @@
     "./*",
     "openscd/packages/*"
   ],
+  "peerDependencies": {
+    "@material/mwc-fab": "0.22.1"
+  },
   "dependencies": {
     "@material/mwc-dialog": "0.22.1",
-    "@material/mwc-fab": "0.22.1",
     "@material/mwc-formfield": "0.22.1",
     "@material/mwc-icon": "0.22.1",
     "@material/mwc-icon-button": "0.22.1",
