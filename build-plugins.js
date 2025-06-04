@@ -63,12 +63,27 @@ async function buildAll() {
                         formats: ['es'],
                     },
                     rollupOptions: {
+                        external: [
+                            '@material/mwc-fab',
+                            '@material/mwc-dialog',
+                            '@material/mwc-button',
+                            "@material/mwc-formfield",
+                            "@material/mwc-icon",
+                            "@material/mwc-icon-button",
+                            "@material/mwc-icon-button-toggle",
+                            "@material/mwc-list",
+                            "@material/mwc-menu",
+                            "@material/mwc-select",
+                            "@material/mwc-switch",
+                            "@material/mwc-textarea",
+                            "@material/mwc-textfield"
+                        ],
                         output: {
                             inlineDynamicImports: true
                         },
                     },
                     target: 'esnext',
-                    emptyOutDir: false,npm
+                    emptyOutDir: false,
                     configFile: false,
                 },
                 resolve: {
