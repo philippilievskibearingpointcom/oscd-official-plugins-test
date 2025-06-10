@@ -19,6 +19,8 @@ import {
   SupportedVersion,
 } from '@openscd/open-scd/src/schemas.js';
 
+import '@openscd/open-scd/src/translations/i18n-config';
+
 export default class NewProjectPlugin extends LitElement {
 
   private createNewProject(
