@@ -20,7 +20,12 @@
     "./*",
     "openscd/packages/*"
   ],
-  "peerDependencies": {
+  "dependencies": {
+    "lit": "^2.2.7",
+    "lit-translate": "^1.2.1",
+    "marked": "^4.0.10",
+    "panzoom": "^9.4.2",
+    "vite": "^6.2.5",
     "@material/mwc-fab": "0.22.1",
     "@material/mwc-dialog": "0.22.1",
     "@material/mwc-formfield": "0.22.1",
@@ -33,13 +38,6 @@
     "@material/mwc-switch": "0.22.1",
     "@material/mwc-textarea": "0.22.1",
     "@material/mwc-textfield": "0.22.1"
-  },
-  "dependencies": {
-    "lit": "^2.2.7",
-    "lit-translate": "^1.2.1",
-    "marked": "^4.0.10",
-    "panzoom": "^9.4.2",
-    "vite": "^6.2.5"
   },
   "scripts": {
     "clean": "rimraf dist",
